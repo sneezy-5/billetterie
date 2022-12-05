@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valider le paiement</title>
+    <link rel="stylesheet" href="{% static 'cssPages/search.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="table_header">
+            <p>Numero reservation</p>
+            <div>
+                <button class="add_new button"><i class="fas fa-chevron-left"></i><a href="{% url 'paiement' %}"> Retour</a></button>
+            </div>
+        </div>
+        <hr>
+        <div class="info-trajet">
+            <div class="infos">
+                <div class="info">
+                    <p class="p">Statut</p>
+                    <p><input type="text" name="#" placeholder=""></p>
+                </div>
+                <div class="info">
+                    <p class="p">Statut</p>
+                    <p><input type="text" name="#" placeholder=""></p>
+                </div>
+            </div>
+            <div class="information">
+                <div class="info">
+                    <p class="p">Nom</p>
+                    <p><input type="text" name="#" placeholder=""></p>
+                </div>
+                <div class="info">
+                    <p class="p">Prenom</p>
+                    <p><input type="text" name="#" placeholder=""></p>
+                </div>
+            </div>
+            <div class="trajets">
+                <div class="trajet">
+                    <p class="p">Email</p>
+                    <p><input type="text" name="#" placeholder=""></p>
+                </div>
+                <div class="trajet">
+                    <p class="p">Téléphone</p>
+                    <p><input type="text" name="#" placeholder=""></p>
+                </div>
+            </div>
+        </div>
+        <div class="espace"></div>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lieu de départ</th>
+                    <th>Lieu d'arrivé</th>
+                    <th>Date de départ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Abengourou</td>
+                    <td>Abidjan</td>
+                    <td>Dim, 03 Dec 2022 - 08h30</td> 
+            </tbody>
+        </table>
+        <div class="espace"></div>
+        <h1>INFORMATION PASSAGER</h1>
+        <hr>
+        <div class="infotrajets">
+            <div class="trajet">
+                <p class="p">Nom</p>
+                <p><input type="text" name="#" placeholder=""></p>
+            </div>
+            <div class="trajet">
+                <p class="p">Prénom</p>
+                <p><input type="text" name="#" placeholder=""></p>
+            </div>
+            <div class="trajet">
+                <p class="p">Téléphone</p>
+                <p><input type="tel" name="#" placeholder=""></p>
+            </div>
+        </div>
+        <div class="espace"></div>  
+        <div class="valider val">
+            <a href="#"><input type="button" value="Valider"></a>
+        </div>
+    </div>
+
+</body>
+</html>

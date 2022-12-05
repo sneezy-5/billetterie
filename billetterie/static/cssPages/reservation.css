@@ -1,0 +1,296 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+  
+html{
+    font-size: 60.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+section{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.3)50%,rgba(0, 0, 0, 0.3)50%), url(../images/car10.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* popup */
+
+p{
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 5px 20px;
+}
+
+button{
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 25px;
+    background: #0612bd;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: .7rem;
+    font-weight: bold;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.76);
+    cursor: pointer;
+}
+
+.add_new{
+    padding: 13px 23px;
+    color: #fff;
+    background: #0612bd;
+}
+
+
+#popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: #ffffff;
+    width: 60%;
+    padding: 80px 50px 50px;
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.411);
+    transition: .5s;
+}
+
+
+#popup .content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content h2{
+    display: flex;
+    justify-content: start;
+    color: #333;
+    font-size: 2.3rem;
+}
+
+.content hr{
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.content form input{
+    padding: 1rem 4rem;
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    outline: none;
+    border: 1px solid #0298cf;
+    border-radius: 10px;
+    color: #0298cf;
+}
+
+.content .lieu{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .lieu1 select{
+    border: 1px solid #0298cf;
+    border-radius: 10px;
+    color: #0298cf;
+    width: 27rem;
+    background: none;
+    color: #000000;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 1rem 4rem;
+    margin: 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.content .heure{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .heure1{
+    font-size: 2rem;
+}
+
+.content .voiture_prix{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#popup .content .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#popup .content .inputBox input{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    outline: none;
+    font-size: 18px;
+}
+
+#popup .content .inputBox input[type="submit"]{
+    max-width: 150px;
+    border: 1px solid #0298cf;
+    background-color: #0298cf;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#popup .content .inputBox input[type="submit"]:hover{
+    border: 1px solid #0298cf;
+    background-color: transparent;
+    color: #0298cf;
+    transition: .5s ease-in-out;
+    border-radius: 10px;
+}
+
+
+.close{
+    position: absolute;
+    padding: 1.5rem;
+    top: 3%;
+    right: 3.3%;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Querie */
+
+/* media queries */
+
+@media (max-width:1136px){
+
+    p{
+        font-size: 1.8rem;
+    }
+
+    html{
+      font-size: 55%;
+    }
+
+    #popup{
+        width: 72%;
+        padding: 2rem
+    }
+}
+
+  
+@media (max-width:768px){
+
+    #popup{
+        width: 72%;
+    }
+
+    p{
+        font-size: 2rem;
+    }
+
+    .content form input{
+        padding: 1.2rem 2rem;
+        margin: 0 1rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+
+    }
+    
+    .content .lieu1 select{
+        border: 1px solid #0298cf;
+        border-radius: 10px;
+        color: #0298cf;
+        width: 27rem;
+        background: none;
+        color: #000000;
+        cursor: pointer;
+        font-size: 1.5rem;
+        padding: 1rem 4rem;
+        margin: 0 1rem;
+        margin-bottom: 1.5rem;
+    }
+  
+
+    #popup{
+        width: 50%;
+        text-align: center;
+    }
+
+    #popup .content{
+        overflow-y: scroll;
+        overflow-x: scroll;
+    }
+    
+    .content .lieu{
+        display: block;
+    }
+
+    .content .lieu1{
+        display: block;
+    }
+    
+    .content .heure{
+        display: block;
+    }
+
+    
+    .content .voiture_prix{
+        display: block;
+    }
+
+    .close{
+        top: 0;
+        right: 3.3%;
+    }
+    
+  
+}
+  
+  
+@media (max-width:510px){
+  
+    html{
+        font-size: 50%;
+    }
+
+    #popup{
+        width: 72%;
+        padding: none;
+    }
+  
+}

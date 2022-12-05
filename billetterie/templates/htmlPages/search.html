@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche Trajet</title>
+    <link rel="stylesheet" href="{% static 'cssPages/search.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p>Trajet</p>
+            <div>
+                <button class="add_new button"><i class="fas fa-chevron-left"></i><a href="{% url 'reservation' %}"> Retour</a></button>
+            </div>
+        </div>
+        <hr>
+        <p>Trajet</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Véhicule</th>
+                    <th>Depart</th>
+                    <th>Capacité</th>
+                    <th>Prix/personne</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>32 places</td>
+                    <td>7h30</td>
+                    <td>32</td>
+                    <td>3.000f</td>   
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="para"></div>
+
+    <div class="champ">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="#"></td>
+                    <td><input type="text" name="#"></td>
+                    <td><input type="email" name="#"></td>
+                    <td><input type="tel" name="#"></td>   
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+    <p class="notes">Notes</p>
+    <textarea name="#" placeholder="Je souhaite svp une place à l'avant"></textarea>
+    <hr>
+
+    <div class="valider">
+        <a href="{% url 'paiement' %}"><input type="button" value="Envoyer"></a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Reservations</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminPanel/dash_css/gestion.css' %}">
+</head>
+<body>
+    <div class="table content">
+        <div class="table_header">
+            <p>Liste des Commandes</p>
+            <div class="lieu1">
+                <input type="date" name="#" placeholder="Du">
+                <input type="date" name="#" placeholder="Au">
+                <select name="#" required>
+                    <option selected disabled>-- Trajet --</option>
+                    <option value="abengourou">Abengourou</option>
+                    <option value="abidjan">Abidjan</option>
+                    <option value="bouaké">Bouaké</option>
+                    <option value="daloa">Daloa</option>
+                    <option value="yamoussoukro">Yamoussoukro</option>
+                    <option value="san-pedro">San-Pedro</option>
+                    <option value="odiené">Odiené</option>
+                    <option value="korhogo">Korhogo</option>
+                </select> 
+                <button class="add_new button"><i class="fas fa-search"></i> Recherche</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Client</th>
+                        <th>Statut</th>
+                        <th>Trajet</th>
+                        <th>Siège</th>
+                        <th>Date de depart</th>
+                        <th>Total</th>
+                        <th>Agent</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>1</td>
+                        <td>Elisee</td>
+                        <td>Confirmer</td>
+                        <td>Abidjan --> Abengourou</td>
+                        <td>12</td>
+                        <td>10-01-2023</td>
+                        <td>2</td>
+                        <td>Nono</td>
+                        <td>
+                            <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
+                            <button><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="pagination">
+            <div><i class="fas fa-angle-double-left"></i></div>
+            <div><i class="fas fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fas fa-chevron-right"></i></div>
+            <div><i class="fas fa-angle-double-right"></i></div>
+        </div> -->
+    </div> 
+
+    <!-- Update or Edit popup -->
+
+    <div id="popupedit">
+        <div class="content">
+            <h2>Modifié une Reservation</h2>
+            <hr>
+            <form action="#">
+                <p>Date de depart</p>
+                <input type="date" name="#">
+                <div class="heure">
+                    <div class="heure1">
+                        <p>Client</p>
+                        <input type="text" name="#" placeholder="Username">
+                    </div>
+                    <div class="heure1">
+                        <p>Statu</p>
+                        <input type="text" name="#" placeholder="Confirmer / En attente / Annuler">
+                    </div>
+                </div>
+                <div class="voiture_prix">
+                    <div class="voiture_prix1">
+                        <p>Trajet</p>
+                        <input type="text" name="#" placeholder="Trajet">
+                    </div>
+                    <div class="voiture_prix1">
+                        <p>Siège</p>
+                        <input type="text" name="#" placeholder="numero du Siège">
+                    </div>
+                </div>
+                <div class="heure">
+                    <div class="heure1">
+                        <p>Total</p>
+                        <input type="number" name="#" placeholder="nombre de reservation">
+                    </div>
+                    <div class="heure1">
+                        <p>Agent</p>
+                        <input type="text" name="#" placeholder="Nom de l'Agent">
+                    </div>
+                </div>
+                <div class="heure">
+                    <div class="heure1">
+                        <p>Embarquement</p>
+                        <input type="text" name="#" placeholder="Embarquement">
+                    </div>
+                    <div class="heure1">
+                        <p>Debarquement</p>
+                        <input type="text" name="#" placeholder="Debarquement">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggleEdit();"></a>
+    </div>
+    <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>

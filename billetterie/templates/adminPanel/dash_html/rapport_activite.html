@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de Trajets</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminPanel/dash_css/gestion.css' %}">
+</head>
+<body>
+    <div class="table content">
+        <div class="table_header">
+            <p>Recherche de Trajets</p>
+            <div class="lieu1">
+                <select name="#" required>
+                    <option selected disabled>-- A --</option>
+                    <option value="abengourou">Abengourou</option>
+                    <option value="abidjan">Abidjan</option>
+                    <option value="bouaké">Bouaké</option>
+                    <option value="daloa">Daloa</option>
+                    <option value="yamoussoukro">Yamoussoukro</option>
+                    <option value="san-pedro">San-Pedro</option>
+                    <option value="odiené">Odiené</option>
+                    <option value="korhogo">Korhogo</option>
+                </select> 
+
+                <select name="#" required>
+                    <option selected disabled>-- De --</option>
+                    <option value="abengourou">Abengourou</option>
+                    <option value="abidjan">Abidjan</option>
+                    <option value="bouaké">Bouaké</option>
+                    <option value="daloa">Daloa</option>
+                    <option value="yamoussoukro">Yamoussoukro</option>
+                    <option value="san-pedro">San-Pedro</option>
+                    <option value="odiené">Odiené</option>
+                    <option value="korhogo">Korhogo</option>
+                </select> 
+                <input type="date" name="#" placeholder="Trajet">
+                <button class="add_new button"><i class="fas fa-search"></i> Recherche</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trajet</th>
+                        <th>#Payée</th>
+                        <th>Total</th>
+                        <th>Annulée</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>Abidjan --> Abengourou</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="pagination">
+            <div><i class="fas fa-angle-double-left"></i></div>
+            <div><i class="fas fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fas fa-chevron-right"></i></div>
+            <div><i class="fas fa-angle-double-right"></i></div>
+        </div> -->
+    </div> 
+
+    <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>

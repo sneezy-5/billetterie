@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservez vos tickets ici</title>
+    <link rel="stylesheet" href="{% static 'cssPages/reservation.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+
+</head>
+<body>
+    <section>
+        <div id="popup">
+            <div class="content">
+                <h2>Créer une Commande</h2>
+                <hr>
+                <form action="#">
+                    <p>Sejour</p>
+                    <input type="text" name="#" placeholder="Allez simple ou Allé-retour">
+                    <div class="lieu">
+                        <div class="lieu1">
+                            <p>Depart</p>
+                            <select name="#" required>
+                                <option selected disabled>Ville de Départ</option>
+                                <option value="abengourou">Abengourou</option>
+                                <option value="abidjan">Abidjan</option>
+                                <option value="bouaké">Bouaké</option>
+                                <option value="daloa">Daloa</option>
+                                <option value="yamoussoukro">Yamoussoukro</option>
+                                <option value="san-pedro">San-Pedro</option>
+                                <option value="odiené">Odiené</option>
+                                <option value="korhogo">Korhogo</option>
+                            </select> 
+                        </div>
+                        <div class="lieu1">
+                            <p>Arrivé</p>
+                            <select name="#" required>
+                                <option selected disabled>Ville d'Arrivé</option>
+                                <option value="abengourou">Abengourou</option>
+                                <option value="abidjan">Abidjan</option>
+                                <option value="bouaké">Bouaké</option>
+                                <option value="daloa">Daloa</option>
+                                <option value="yamoussoukro">Yamoussoukro</option>
+                                <option value="san-pedro">San-Pedro</option>
+                                <option value="odiené">Odiené</option>
+                                <option value="korhogo">Korhogo</option>
+                            </select> 
+                        </div>
+                    </div>
+                    <div class="heure">
+                        <div class="heure1">
+                            <p>Date de Depart</p>
+                            <input type="date" name="#">
+                        </div>
+                        <div class="heure1">
+                            <p>Date de Retour</p>
+                            <input type="date" name="#">
+                        </div>
+                    </div>
+                    <div class="voiture_prix">
+                        <div class="voiture_prix1">
+                            <p>Passagers</p>
+                            <input type="number" name="#" placeholder="nombre de Passager">
+                        </div>
+                        <div class="voiture_prix1">
+                            <p>Heure de Depart</p>
+                            <input type="time" name="#">
+                        </div>
+                    </div>
+                    <button class="add_new button"><i class="fas fa-search"></i><a href="{% url 'search' %}" style="color: #fff; padding: 13px 5px;"> Recherche</a></button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- END section -->
+    <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>

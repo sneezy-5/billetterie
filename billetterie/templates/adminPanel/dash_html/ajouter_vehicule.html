@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicule</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminPanel/dash_css/gestion.css' %}">
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p>Vehicule</p>
+            <div>
+                <button class="add_new button" onclick="popupToggle();">+ Add New Vehicle</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>#Capacité</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>32 places</td>
+                        <td>32</td>
+                        <td>Siège</td>
+                        <td>
+                            <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
+                            <button><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>         
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="pagination">
+            <div><i class="fas fa-angle-double-left"></i></div>
+            <div><i class="fas fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fas fa-chevron-right"></i></div>
+            <div><i class="fas fa-angle-double-right"></i></div>
+        </div> -->
+    </div>
+    <div id="popup">
+        <div class="content">
+            <h2>Ajouté un Nouveau Vehicule</h2>
+            <hr>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="lieu titre">
+                    <p>Titre</p>
+                    {{form.nom_vehicule}}
+
+                </div>
+                <div class="capacite heure">
+                    <p>Capacité</p>
+                    {{form.capacite}}
+                </div>
+                <div class="type heure">
+                    <p>Type</p>
+                    {{form.type}}
+                </div>
+                <div class="type heure">
+                    <p>Trajets</p>
+                    {% for key, trajet in trajets %}
+                  <option value="{{trajet.id}}">  {{trajet.code_trajet}}</option>
+                    {%endfor%}
+                </div>
+                <div class="type heure">
+                    <p>Destinations</p>
+                    {% for key, destination in destinations %}
+                  <option value="{{destination.id}}">  {{destination.nom_destination}}</option>
+                    {%endfor%}
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+                {% if errors %}
+                <div>
+                    {% for key, error in errors %}
+                    {{error}}
+                    {%endfor%}
+                </div>
+                {%endif%}
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggle();"></a>
+    </div>
+
+    <!-- Update or Edit popup -->
+
+    <div id="popupedit">
+        <div class="content">
+            <h2>Modifié le Vehicule</h2>
+            <hr>
+            <form action="#">
+                <div class="lieu titre">
+                    <p>Titre</p>
+                    <input type="text" name="#" placeholder="16 places">
+                </div>
+                <div class="capacite heure">
+                    <p>Capacité</p>
+                    <input type="number" name="#" placeholder="16">
+                </div>
+                <div class="type heure">
+                    <p>Type</p>
+                    <input type="text" name="#" placeholder="Siège">
+                </div>
+                <div class="adresse heure">
+                    <p>statu</p>
+                    <input type="text" name="#" placeholder="Oui ou Non">
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggleEdit();"></a>
+    </div>
+
+
+    <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>

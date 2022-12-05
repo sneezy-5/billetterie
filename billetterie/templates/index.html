@@ -1,0 +1,346 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compagnie de transport</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cssPages/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!--  header starts  -->
+    <header>
+        <h2 class="logo">Tran<span>sport</span></h2>
+
+        <nav class="navbar">
+            <a href="#home" data-text="accueil">accueil</a>
+            <a href="#about" data-text="about">about</a>
+            <a href="#review" data-text="review">review</a>
+            <a href="#contact" data-text="contact">contact</a>
+            <a href="{% url 'appbilletterie:reservation' %}" data-text="reservation">reservation</a>
+        </nav>
+
+        <div class="icons">
+            <a href="{% url 'account:connexion' %}" class="fas fa-user"></a>
+            <a id="menu_btn" class="fas fa-bars"></a>
+        </div>
+
+    </header>
+
+    <!-- header ends -->
+
+    <!-- div home starts  -->
+
+    <section class="slider" id="home">
+        <div class="home containe">
+            <div>
+              <h1>Hello, <span></span></h1>
+              <h1>La compagnie  <span></span></h1>
+              <h1>Noel <span></span></h1>
+              <h1>vous souhaite la <span></span></h1>
+              <h1>Bienvenue <span></span></h1>
+              <a href="{% url 'appbilletterie:reservation' %}" class="cta">reservation</a>
+            </div>
+          </div>
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- about section starts  -->
+
+    <section class="about section" id="about">
+
+        <h1 class="heading"> 
+            <span>about us</span>
+            <span>about us</span>  
+        </h1>
+    
+        <div class="row">
+
+            <div class="imag-container">
+                <img src="{% static 'images/car2.JPG' %}" alt="" srcset="">
+            </div>
+    
+            <div class="content">
+                <h3>why choose us?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem cumque sit nemo pariatur corporis perspiciatis aspernatur a ullam repudiandae autem asperiores quibusdam omnis commodi alias repellat illum, unde optio temporibus.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium ea est commodi incidunt magni quia molestias perspiciatis, unde repudiandae quidem.</p>
+                <a href="#" class="btns">learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- about section ends  -->
+
+    <!-- review div starts  -->
+
+    <h1 class="heading">
+        <span>review</span>
+        <span>review</span>
+    </h1>
+
+    <div class="body review" id="review">
+        <div class="texte">
+            <h1>Que <span>Disent</span> Nos <span>Clients</span> </h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. </p>
+        </div>
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            <div class="card-image">
+                                <img src="{% static 'images/profile1.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{% static 'images/profile2.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{% static 'images/profile3.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{% static 'images/profile4.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{% static 'images/profile5.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{% static 'images/profile6.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{% static '/images/profile7.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{% static 'images/profile8.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="{% static 'images/profile9.jpg' %}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2 class="name">David Dell</h2>
+                            <p class="description">The lorem text the section that contains header with having open functionality. Lorem dolor sit amet consectetur adipisicing elit.</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+
+    <!-- review div ends  -->
+
+    <!-- contact section starts  -->
+
+    <h1 class="heading" id="contact">
+        <span>contact</span>
+        <span>contact</span>
+    </h1>
+    <div class="container">
+        <span class="big-circle"></span>
+        <div class="form">
+          <div class="contact-info">
+            <h3 class="title">Let's get in touch</h3>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+              dolorum adipisci recusandae praesentium dicta!
+            </p>
+  
+            <div class="info">
+              <div class="information">
+                <img src="{% static 'images/location.png' %}" class="icon" alt="" />
+                <p>92 Cherry Drive Uniondale, NY 11553</p>
+              </div>
+              <div class="information">
+                <img src="{% static 'images/email.png' %}" class="icon" alt="" />
+                <p>lorem@ipsum.com</p>
+              </div>
+              <div class="information">
+                <img src="{% static '/images/phone.png' %}" class="icon" alt="" />
+                <p>123-456-789</p>
+              </div>
+            </div>
+  
+            <div class="social-media">
+              <p>Connect with us :</p>
+              <div class="social-icons">
+                <a href="#">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="contact-form">
+            <span class="circle one"></span>
+            <span class="circle two"></span>
+            <span class="circle three"></span>
+  
+            <form action="index.html" autocomplete="off">
+              <h3 class="title">Contact us</h3>
+              <div class="input-container">
+                <input type="text" name="name" class="input" />
+                <label for="">Username</label>
+                <span>Username</span>
+              </div>
+              <div class="input-container">
+                <input type="email" name="email" class="input" />
+                <label for="">Email</label>
+                <span>Email</span>
+              </div>
+              <div class="input-container">
+                <input type="tel" name="phone" class="input" />
+                <label for="">Phone</label>
+                <span>Phone</span>
+              </div>
+              <div class="input-container textarea">
+                <textarea name="message" class="input"></textarea>
+                <label for="">Message</label>
+                <span>Message</span>
+              </div>
+              <input type="submit" value="Send" class="btn" />
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <!-- contact section ends  -->
+
+   <!-- sarts footer -->
+
+   <footer class="footer">
+        <div class="copyright">
+            <p>copyright © 2022 Created By <a href="#">Elisee Koffi</a> | all rights reserved  </p>
+        </div>
+    </footer>
+
+    <!-- ends footer -->
+
+    <script src="{% static 'javaScript/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'javaScript/script.js' %}"></script>
+</body>
+</html>

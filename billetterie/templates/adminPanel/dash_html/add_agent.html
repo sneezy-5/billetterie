@@ -1,0 +1,150 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Agent</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminPanel/dash_css/gestion.css' %}">
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p>Agents</p>
+            <div>
+                <button class="add_new button" onclick="popupToggle();">+ Créer un Agent</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Telephone</th>
+                        <th>Prenom</th>
+                        <th>Nom</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>test@test.com</td>
+                        <td>0701020304</td>
+                        <td>Elisee</td>
+                        <td>Koffi</td>
+                        <td>
+                            <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
+                            <button><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="pagination">
+            <div><i class="fas fa-angle-double-left"></i></div>
+            <div><i class="fas fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fas fa-chevron-right"></i></div>
+            <div><i class="fas fa-angle-double-right"></i></div>
+        </div> -->
+    </div>
+    <div id="popup">
+        <div class="content">
+            <h2>Créer un Agent</h2>
+            <hr>
+            <form action="#">
+                <p>Téléphone</p>
+                <input type="text" name="#" placeholder="+2250102030405">
+                <div class="voiture_prix">
+                    <div class="voiture_prix1">
+                        <p>Email</p>
+                        <input type="email" name="#" placeholder="test@test.com">
+                    </div>
+                    <div class="voiture_prix1">
+                        <p>Mot de passe</p>
+                        <input type="password" name="#">
+                    </div>
+                </div>
+                <div class="heure">
+                    <div class="heure1">
+                        <p>Prenom</p>
+                        <input type="text" name="#" placeholder="Prenom">
+                    </div>
+                    <div class="heure1">
+                        <p>Nom</p>
+                        <input type="text" name="#" placeholder="Nom">
+                    </div>
+                </div>
+                <div class="voiture_prix">
+                    <div class="voiture_prix1">
+                        <p>Pays</p>
+                        <input type="text" name="#" placeholder="Pays">
+                    </div>
+                    <div class="voiture_prix1">
+                        <p>Ville</p>
+                        <input type="text" name="#" placeholder="Ville">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggle();"></a>
+    </div>
+
+    <!-- Update or Edit popup -->
+
+    <div id="popupedit">
+        <div class="content">
+            <h2>Modifié l'Agent</h2>
+            <hr>
+            <form action="#">
+                <p>Téléphone</p>
+                <input type="text" name="#" placeholder="+2250102030405">
+                <div class="voiture_prix">
+                    <div class="voiture_prix1">
+                        <p>Email</p>
+                        <input type="email" name="#" placeholder="test@test.com">
+                    </div>
+                    <div class="voiture_prix1">
+                        <p>Mot de passe</p>
+                        <input type="password" name="#">
+                    </div>
+                </div>
+                <div class="heure">
+                    <div class="heure1">
+                        <p>Prenom</p>
+                        <input type="text" name="#" placeholder="Prenom">
+                    </div>
+                    <div class="heure1">
+                        <p>Nom</p>
+                        <input type="text" name="#" placeholder="Nom">
+                    </div>
+                </div>
+                <div class="voiture_prix">
+                    <div class="voiture_prix1">
+                        <p>Pays</p>
+                        <input type="text" name="#" placeholder="Pays">
+                    </div>
+                    <div class="voiture_prix1">
+                        <p>Ville</p>
+                        <input type="text" name="#" placeholder="Ville">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggleEdit();"></a>
+    </div>
+
+
+    <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>

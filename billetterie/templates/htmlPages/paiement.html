@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement</title>
+    <link rel="stylesheet" href="{% static 'cssPages/search.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p>Numero reservation</p>
+            <div>
+                <a href="#"><button class="add_new button" onclick="popupToggle();"> Effectuer le paiement</button></a>
+                <button class="add_new button"><i class="fas fa-chevron-left"></i><a href="{% url 'search' %}"> Retour</a></button>
+            </div>
+            
+        </div>
+        <hr>
+    </div>
+    <div class="codeqr">
+
+    </div>
+    <div class="info-trajet">
+        <div class="infos">
+            <div class="info">
+                <p>Statut</p>
+                <p>En attente</p>
+            </div>
+            <div class="info">
+                <p>Statut</p>
+                <p>Non Réglé</p>
+            </div>
+        </div>
+        <div class="information">
+            <div class="info">
+                <p>Nom Complet</p>
+                <p>Elisee Koffi</p>
+            </div>
+            <div class="info">
+                <p>Téléphone</p>
+                <p>0025 0700000000</p>
+            </div>
+        </div>
+        <div class="trajets">
+            <div class="trajet">
+                <p>Lieu de départ</p>
+                <p>Lieu d'arrivé</p>
+            </div>
+            <div class="trajet">
+                <p>Date de départ</p>
+                <p>Heure de départ</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="passager">
+        <p>Passager</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Koffi</td>
+                    <td>Elisee</td> 
+            </tbody>
+        </table>
+    </div>
+    <div class="detail">
+        <p>Notes : </p>
+        <div class="sous">
+            <p>Sous-total</p>
+            <p>prix</p>
+        </div>
+    
+        <hr>
+        <div class="sous">
+            <p>Total</p>
+            <p>prix</p>
+        </div>
+    </div>
+    
+    <div id="popup">
+        <div class="content">
+            <h2>Ajouté un Nouveau Vehicule</h2>
+            <hr>
+            <h3>Numero de réservation</h3>
+            <p>123456</p>
+            <h3>Total</h3>
+            <p>23456f</p>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggle();"></a>
+        <div class="save">
+            <a href="{% url 'valider_paiement' %}"><input type="button" value="Enregistrer"></a>
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'javaScript/paiement.js' %}"></script>
+</body>
+</html>

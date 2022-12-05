@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagages et Colis</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminPanel/dash_css/gestion.css' %}">
+</head>
+<body>
+    <div class="table content">
+        <div class="table_header">
+            <p>Recherche de Trajets</p>
+            <div>
+                <button class="add_new button" onclick="popupToggle();">+ Créer une Commande</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#No</th>
+                        <th>Trajet</th>
+                        <th>Expediteur</th>
+                        <th>Destinataire</th>
+                        <th>Heure</th>
+                        <th>#Qté</th>
+                        <th>Poids</th>
+                        <th>Prix</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HDMI</td>
+                        <td>Abidjan --> Abengourou</td>
+                        <td>Elisee <br> Koffi <br> 0707070707</td>
+                        <td>Noel <br> Koffi <br> 0707070707</td>
+                        <td>7:30</td>
+                        <td>3</td>
+                        <td>150kg</td>
+                        <td>3.500f</td>
+                        <td>
+                            <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
+                            <button><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="pagination">
+            <div><i class="fas fa-angle-double-left"></i></div>
+            <div><i class="fas fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fas fa-chevron-right"></i></div>
+            <div><i class="fas fa-angle-double-right"></i></div>
+        </div> -->
+    </div> 
+    <div id="popup">
+        <div class="content">
+            <h2>Créer une Commande</h2>
+            <hr>
+            <form action="#">
+                <div class="ville1 lieu1">
+                    <div class="ville lieu">
+                        <select name="ville" required>
+                            <option selected disabled>Ville</option>
+                            <option value="abengourou">Abengourou</option>
+                            <option value="abidjan">Abidjan</option>
+                            <option value="bouaké">Bouaké</option>
+                            <option value="daloa">Daloa</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                            <option value="san-pedro">San-Pedro</option>
+                            <option value="odiené">Odiené</option>
+                            <option value="korhogo">Korhogo</option>
+                        </select> 
+                        <select name="ville" required>
+                            <option selected disabled>Ville</option>
+                            <option value="abengourou">Abengourou</option>
+                            <option value="abidjan">Abidjan</option>
+                            <option value="bouaké">Bouaké</option>
+                            <option value="daloa">Daloa</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                            <option value="san-pedro">San-Pedro</option>
+                            <option value="odiené">Odiené</option>
+                            <option value="korhogo">Korhogo</option>
+                        </select> 
+                    </div>
+                </div>
+                <div class="lieu titre">
+                    <input type="text" name="#" placeholder="Expediteur">
+                    <input type="text" name="#" placeholder="Destinataire">
+                </div>
+                <div class="adresse heure">
+                    <input type="text" name="#" placeholder="number de l'Expediteur">
+                    <input type="text" name="#" placeholder="number du Destinataire">
+                </div>
+                <div class="heure">
+                    <input type="text" name="#" placeholder="En attente / Confirméé / Annulée">
+                    <input type="date" name="#">
+                </div>
+                <div class="lieu">
+                    <input type="number" name="#" placeholder=" Poids ( Kg )">
+                    <input type="number" name="#" placeholder=" Prix ( fcfa )">
+                </div>
+                <hr>
+            </form>
+            <div class="table_section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Quantité</th>
+                            <th>Poids (kg)</th>
+                            <th>Prix (fcfa)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select name="#" required>
+                                    <option selected disabled>Titre</option>
+                                    <option value="abengourou">Valis</option>
+                                    <option value="abidjan">Colis</option>
+                                    <option value="bouaké">Gros emballage</option>
+                                </select>
+                            </td>
+                            <td><input type="number" name="#"></td>
+                            <td><input type="number" name="#"></td>
+                            <td><input type="number" name="#"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="Save">
+            </div> 
+        </div>
+        <a class="fas fa-times close" onclick="popupToggle();"></a>
+    </div>
+
+    <!-- Update or Edit popup -->
+
+    <div id="popupedit">
+        <div class="content">
+            <h2>Créer une Commande</h2>
+            <hr>
+            <form action="#">
+                <div class="ville1 lieu1">
+                    <div class="ville lieu">
+                        <select name="ville" required>
+                            <option selected disabled>Ville</option>
+                            <option value="abengourou">Abengourou</option>
+                            <option value="abidjan">Abidjan</option>
+                            <option value="bouaké">Bouaké</option>
+                            <option value="daloa">Daloa</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                            <option value="san-pedro">San-Pedro</option>
+                            <option value="odiené">Odiené</option>
+                            <option value="korhogo">Korhogo</option>
+                        </select> 
+                        <select name="ville" required>
+                            <option selected disabled>Ville</option>
+                            <option value="abengourou">Abengourou</option>
+                            <option value="abidjan">Abidjan</option>
+                            <option value="bouaké">Bouaké</option>
+                            <option value="daloa">Daloa</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                            <option value="san-pedro">San-Pedro</option>
+                            <option value="odiené">Odiené</option>
+                            <option value="korhogo">Korhogo</option>
+                        </select> 
+                    </div>
+                </div>
+                <div class="lieu titre">
+                    <input type="text" name="#" placeholder="Expediteur">
+                    <input type="text" name="#" placeholder="Destinataire">
+                </div>
+                <div class="adresse heure">
+                    <input type="text" name="#" placeholder="number de l'Expediteur">
+                    <input type="text" name="#" placeholder="number du Destinataire">
+                </div>
+                <div class="heure">
+                    <input type="text" name="#" placeholder="En attente / Confirméé / Annulée">
+                    <input type="date" name="#">
+                </div>
+                <div class="lieu">
+                    <input type="number" name="#" placeholder=" Poids ( Kg )">
+                    <input type="number" name="#" placeholder=" Prix ( fcfa )">
+                </div>
+                <hr>
+            </form>
+            <div class="table_section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Quantité</th>
+                            <th>Poids (kg)</th>
+                            <th>Prix (fcfa)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select name="#" required>
+                                    <option selected disabled>Titre</option>
+                                    <option value="abengourou">Valis</option>
+                                    <option value="abidjan">Colis</option>
+                                    <option value="bouaké">Gros emballage</option>
+                                </select>
+                            </td>
+                            <td><input type="number" name="#"></td>
+                            <td><input type="number" name="#"></td>
+                            <td><input type="number" name="#"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="Save">
+            </div> 
+            <a class="fas fa-times close" onclick="popupToggleEdit();"></a>
+        </div>
+
+    <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>

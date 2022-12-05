@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de Trajets</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminPanel/dash_css/gestion.css' %}">
+</head>
+<body>
+    <div class="table content">
+        <div class="table_header">
+            <p>Recherche de Trajets</p>
+            <div class="lieu1">
+                <select name="#" required>
+                    <option selected disabled>-- A --</option>
+                    <option value="abengourou">Abengourou</option>
+                    <option value="abidjan">Abidjan</option>
+                    <option value="bouaké">Bouaké</option>
+                    <option value="daloa">Daloa</option>
+                    <option value="yamoussoukro">Yamoussoukro</option>
+                    <option value="san-pedro">San-Pedro</option>
+                    <option value="odiené">Odiené</option>
+                    <option value="korhogo">Korhogo</option>
+                </select> 
+
+                <select name="#" required>
+                    <option selected disabled>-- De --</option>
+                    <option value="abengourou">Abengourou</option>
+                    <option value="abidjan">Abidjan</option>
+                    <option value="bouaké">Bouaké</option>
+                    <option value="daloa">Daloa</option>
+                    <option value="yamoussoukro">Yamoussoukro</option>
+                    <option value="san-pedro">San-Pedro</option>
+                    <option value="odiené">Odiené</option>
+                    <option value="korhogo">Korhogo</option>
+                </select> 
+                <input type="date" name="#" placeholder="Trajet">
+                <button class="add_new button"><i class="fas fa-search"></i> Recherche</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trajet</th>
+                        <th>#No</th>
+                        <th>Vehicule</th>
+                        <th>Heure</th>
+                        <th>Prix</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Abidjan --> Abengourou</td>
+                        <td>HDMI</td>
+                        <td>32 places</td>
+                        <td>7:30</td>
+                        <td>3.500f</td>
+                        <td>
+                            <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
+                            <button><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div> 
+    <!-- <div class="pagination">
+        <div><i class="fas fa-angle-double-left"></i></div>
+        <div><i class="fas fa-chevron-left"></i></div>
+        <div>1</div>
+        <div>2</div>
+        <div><i class="fas fa-chevron-right"></i></div>
+        <div><i class="fas fa-angle-double-right"></i></div>
+    </div> -->
+
+    <!-- Update or Edit popup -->
+
+    <div id="popupedit">
+        <div class="content">
+            <h2>Modifié le Trajet</h2>
+            <hr>
+            <form action="#">
+                <p>#No</p>
+                <input type="text" name="#" placeholder="HDMI">
+                <div class="voiture_prix">
+                    <div class="voiture_prix1">
+                        <p>Trajet</p>
+                        <input type="text" name="#" placeholder="Trajet">
+                    </div>
+                    <div class="voiture_prix1">
+                        <p>Vehicule</p>
+                        <input type="number" name="#" placeholder="nombre de places">
+                    </div>
+                </div>
+                <div class="heure">
+                    <div class="heure1">
+                        <p>Heure</p>
+                        <input type="time" name="#" placeholder="heure">
+                    </div>
+                    <div class="heure1">
+                        <p>Prix</p>
+                        <input type="number" name="#" placeholder="Prix">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggleEdit();"></a>
+    </div>
+        <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>

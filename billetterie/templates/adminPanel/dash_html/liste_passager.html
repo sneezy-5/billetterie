@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Passager</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminPanel/dash_css/gestion.css' %}">
+</head>
+<body>
+    <div class="table content">
+        <div class="table_header">
+            <p>Passagers</p>
+            <div class="lieu1">
+                <select name="#" required>
+                    <option selected disabled>Ville</option>
+                    <option value="abengourou">Abengourou</option>
+                    <option value="abidjan">Abidjan</option>
+                    <option value="bouaké">Bouaké</option>
+                    <option value="daloa">Daloa</option>
+                    <option value="yamoussoukro">Yamoussoukro</option>
+                    <option value="san-pedro">San-Pedro</option>
+                    <option value="odiené">Odiené</option>
+                    <option value="korhogo">Korhogo</option>
+                </select> 
+                <input type="date" name="#" placeholder="Trajet">
+                <button class="add_new button"><i class="fas fa-search"></i> Recherche</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Prenom</th>
+                        <th>Nom</th>
+                        <th>Trajet</th>
+                        <th>Telephone</th>
+                        <th>Date de depart</th>
+                        <th>N reservation</th>
+                        <th>Embarquement</th>
+                        <th>Debarquement</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Elisee</td>
+                        <td>Koffi</td>
+                        <td>Abidjan - Abengourou</td>
+                        <td>0101010101</td>
+                        <td>24-12-2012</td>
+                        <td>000093</td>
+                        <td>Abidjan</td>
+                        <td>Abengourou</td>
+                        <td>
+                            <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
+                            <button><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="pagination">
+            <div><i class="fas fa-angle-double-left"></i></div>
+            <div><i class="fas fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fas fa-chevron-right"></i></div>
+            <div><i class="fas fa-angle-double-right"></i></div>
+        </div> -->
+    </div> 
+
+    <!-- Update or Edit popup -->
+
+     <div id="popupedit">
+        <div class="content">
+            <h2>Modifié un Passager</h2>
+            <hr>
+            <form action="#">
+                <p>Date de depart</p>
+                <input type="date" name="#">
+                <div class="heure">
+                    <div class="heure1">
+                        <p>Prenom</p>
+                        <input type="text" name="#" placeholder="Prenom">
+                    </div>
+                    <div class="heure1">
+                        <p>Nom</p>
+                        <input type="text" name="#" placeholder="Nom">
+                    </div>
+                </div>
+                <div class="voiture_prix">
+                    <div class="voiture_prix1">
+                        <p>Trajet</p>
+                        <input type="text" name="#" placeholder="Trajet">
+                    </div>
+                    <div class="voiture_prix1">
+                        <p>Téléphone</p>
+                        <input type="text" name="#" placeholder="Telephone">
+                    </div>
+                </div>
+                <div class="heure">
+                    <div class="heure1">
+                        <p>#</p>
+                        <input type="text" name="#" placeholder="HDMI">
+                    </div>
+                    <div class="heure1">
+                        <p>Num reservation</p>
+                        <input type="number" name="#" placeholder="Num reservation">
+                    </div>
+                </div>
+                <div class="heure">
+                    <div class="heure1">
+                        <p>Embarquement</p>
+                        <input type="text" name="#" placeholder="Embarquement">
+                    </div>
+                    <div class="heure1">
+                        <p>Debarquement</p>
+                        <input type="text" name="#" placeholder="Debarquement">
+                    </div>
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggleEdit();"></a>
+    </div>
+
+
+    <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>

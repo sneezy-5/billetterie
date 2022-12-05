@@ -1,0 +1,161 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remises</title>
+    <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'adminPanel/dash_css/gestion.css' %}">
+</head>
+<body>
+    <div class="table">
+        <div class="table_header">
+            <p>Remise</p>
+            <div>
+                <button class="add_new button" onclick="popupToggle();">+ Create Discount</button>
+            </div>
+        </div>
+        <div class="table_section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Debut</th>
+                        <th>Fin</th>
+                        <th>Montant</th>
+                        <th>Trajet</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Remise 500f</td>
+                        <td>20-12-2022</td>
+                        <td>10-01-2023</td>
+                        <td>500</td>
+                        <td>Abidjan - Abengourou</td>
+                        <td>Publié</td>
+                        <td>
+                            <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
+                            <button><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- <div class="pagination">
+            <div><i class="fas fa-angle-double-left"></i></div>
+            <div><i class="fas fa-chevron-left"></i></div>
+            <div>1</div>
+            <div>2</div>
+            <div><i class="fas fa-chevron-right"></i></div>
+            <div><i class="fas fa-angle-double-right"></i></div>
+        </div> -->
+    </div>
+    <div id="popup">
+        <div class="content">
+            <h2>Créer une Remise</h2>
+            <hr>
+            <form action="#">
+                <div class="lieu titre">
+                    <p>Titre</p>
+                    <input type="text" name="#" placeholder="Remises 500f sur vos Voyage">
+                </div>
+                <div class="ville1 lieu1">
+                    <div class="ville lieu">
+                        <p>Trajet</p>
+                        <select name="#" required>
+                            <option selected disabled>Ville</option>
+                            <option value="abengourou">Abengourou</option>
+                            <option value="abidjan">Abidjan</option>
+                            <option value="bouaké">Bouaké</option>
+                            <option value="daloa">Daloa</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                            <option value="san-pedro">San-Pedro</option>
+                            <option value="odiené">Odiené</option>
+                            <option value="korhogo">Korhogo</option>
+                        </select> 
+                    </div>
+                </div>
+                <div class="adresse heure">
+                    <p>Debut</p>
+                    <input type="date" name="#">
+                </div>
+                <div class="adresse heure">
+                    <p>Fin</p>
+                    <input type="date" name="#">
+                </div>
+                <div class="adresse heure">
+                    <p>Montant</p>
+                    <input type="number" name="#" placeholder="500">
+                </div>
+                <div class="adresse heure">
+                    <p>Statu</p>
+                    <input type="text" name="#" placeholder="Publié ou Dépublié">
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggle();"></a>
+    </div>
+    
+    <!-- Update or Edit popup -->
+
+    <div id="popupedit">
+        <div class="content">
+            <h2>Modifié la Remise</h2>
+            <hr>
+            <form action="#">
+                <div class="lieu titre">
+                    <p>Titre</p>
+                    <input type="text" name="#" placeholder="Remises 500f sur vos Voyage">
+                </div>
+                <div class="ville1 lieu1">
+                    <div class="ville lieu">
+                        <p>Trajet</p>
+                        <select name="#" required>
+                            <option selected disabled>Ville</option>
+                            <option value="abengourou">Abengourou</option>
+                            <option value="abidjan">Abidjan</option>
+                            <option value="bouaké">Bouaké</option>
+                            <option value="daloa">Daloa</option>
+                            <option value="yamoussoukro">Yamoussoukro</option>
+                            <option value="san-pedro">San-Pedro</option>
+                            <option value="odiené">Odiené</option>
+                            <option value="korhogo">Korhogo</option>
+                        </select> 
+                    </div>
+                </div>
+                <div class="adresse heure">
+                    <p>Debut</p>
+                    <input type="date" name="#">
+                </div>
+                <div class="adresse heure">
+                    <p>Fin</p>
+                    <input type="date" name="#">
+                </div>
+                <div class="adresse heure">
+                    <p>Montant</p>
+                    <input type="number" name="#" placeholder="500">
+                </div>
+                <div class="adresse heure">
+                    <p>Statu</p>
+                    <input type="text" name="#" placeholder="Publié ou Dépublié">
+                </div>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
+            </form>
+        </div>
+        <a class="fas fa-times close" onclick="popupToggleEdit();"></a>
+    </div>
+
+    <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
+</body>
+</html>
