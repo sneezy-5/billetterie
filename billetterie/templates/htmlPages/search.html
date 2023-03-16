@@ -9,13 +9,23 @@
     <link rel="stylesheet" href="{% static 'cssPages/search.css' %}">
     <link rel="stylesheet" href="{% static 'font/css/all.min.css' %}">
     <link rel="stylesheet" href="{% static 'font/css/fontawesome.min.css' %}">
+    <script src="{% static 'qrcodejs/qrcode.min.js' %}"></script>
+
 </head>
 <body>
+    <style>
+@media print {
+  .print-btn { display: none; }
+  thead { display: table-header-group; position: fixed; top: 0; }
+}
+
+
+    </style>
     <div class="table">
         <div class="table_header">
             <p>Trajet</p>
             <div>
-                <button class="add_new button"><i class="fas fa-chevron-left"></i><a href="{% url 'reservation' %}"> Retour</a></button>
+                <button class="add_new button"><i class="fas fa-chevron-left"></i><a href="{% url 'appbilletterie:index' %}"> Retour</a></button>
             </div>
         </div>
         <hr>
@@ -23,25 +33,42 @@
         <table>
             <thead>
                 <tr>
-                    <th>Véhicule</th>
-                    <th>Depart</th>
-                    <th>Capacité</th>
-                    <th>Prix/personne</th>
+                    <th>#</th>
+                    <th>Client</th>
+                    <th>Statut</th>
+                    <th>Trajet</th>
+                    <th>Siège</th>
+                    <th>Date de depart</th>
+                    <th>Heure de depart</th>
+                    <th>Qr Code</th>
                 </tr>
             </thead>
             <tbody>
+                {% for reservation in reservations %}
                 <tr>
-                    <td>32 places</td>
-                    <td>7h30</td>
-                    <td>32</td>
-                    <td>3.000f</td>   
+                    <td>{{reservation.id}}</td>
+                    <td>{{reservation.client.username}}</td>
+                    <td>{% if reservation.status %}Confirmée{%endif%}</td>
+                    <td>{{reservation.trajet.lieu_depart}}-{{reservation.trajet.lieu_arrivee}}</td>
+                    <td>{{reservation.place}}</td>
+                    <td>{{reservation.date_depat}}</td>
+                    <td>{{reservation.heure_depat}}</td>
+                    <td>
+                        <div class="qr-code"></div>
+                        <button class="print-btn"><i class="fas fa-print"></i></button>
+                    </td>
+                </tr>
+                {% endfor %}
             </tbody>
+                
+                
+                
         </table>
     </div>
     
     <div class="para"></div>
 
-    <div class="champ">
+    <!-- <div class="champ">
         <table>
             <thead>
                 <tr>
@@ -60,15 +87,98 @@
             </tbody>
         </table>
         <br>
-    </div>
+    </div> -->
 
     <p class="notes">Notes</p>
     <textarea name="#" placeholder="Je souhaite svp une place à l'avant"></textarea>
     <hr>
 
     <div class="valider">
-        <a href="{% url 'paiement' %}"><input type="button" value="Envoyer"></a>
+        <a href="{% url 'appbilletterie:paiement' %}"><input type="button" value="Envoyer"></a>
     </div>
 
+
+
+    <script>
+
+
+
+// Sélectionnez tous les conteneurs de code QR et parcourez-les
+const qrContainers = document.querySelectorAll('.qr-code');
+qrContainers.forEach(qrContainer => {
+    // Récupérez l'ID de réservation de la ligne de réservation correspondante
+    const id = qrContainer.parentNode.parentNode.children[0].textContent;
+
+    // Générez le code QR avec l'ID de réservation
+    const qrCode = new QRCode(qrContainer, {
+        text: id,
+        width: 128,
+        height: 128,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+});
+
+
+
+
+const printBtns = document.querySelectorAll('.print-btn');
+printBtns.forEach(printBtn => {
+  printBtn.addEventListener('click', event => {
+    const row = event.target.closest('tr');
+    const table = row.closest('table');
+    const headerRow = table.querySelector('thead tr');
+    const tableRows = table.querySelectorAll('tbody tr');
+    const rowIdx = Array.from(tableRows).indexOf(row);
+    // Create a new HTML document to print the row
+    const printWindow = window.open('', 'Print', 'height=600,width=800');
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Print</title>
+          <style>
+            @media print {
+              body * {
+                visibility: hidden;
+              }
+              #print-content, #print-content * {
+                visibility: visible;
+              }
+              #print-content {
+                position: absolute;
+                left: 0;
+                top: 0;
+              }
+            }
+          </style>
+        </head>
+        <body>
+          <div id="print-content">
+            <table>
+              <thead>
+                ${headerRow.outerHTML}
+              </thead>
+              <tbody>
+                ${tableRows[rowIdx].outerHTML}
+              </tbody>
+            </table>
+          </div>
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.focus();
+    printWindow.print();
+    printWindow.close();
+  });
+});
+
+
+    </script>
+
+
+    
+    
 </body>
 </html>

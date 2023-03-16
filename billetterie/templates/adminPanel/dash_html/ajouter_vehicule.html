@@ -29,15 +29,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for  vehicule in vehicules %}
+             
+                  
                     <tr>
-                        <td>32 places</td>
-                        <td>32</td>
-                        <td>Siège</td>
+                        <td>{{vehicule.nom_vehicule}}</td>
+                        <td>{{vehicule.capacite}}</td>
+                        <td>{{vehicule.type}}</td>
                         <td>
                             <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
                             <button><i class="fas fa-trash"></i></button>
                         </td>
-                    </tr>         
+                    </tr>
+                    {%endfor%}
                 </tbody>
             </table>
         </div>
@@ -55,11 +59,22 @@
             <h2>Ajouté un Nouveau Vehicule</h2>
             <hr>
             <form action="" method="post">
+                {% if errors %}
+                <div>
+                    {% for  error in errors %}
+                    {{error}}
+                    {%endfor%}
+                </div>
+                {%endif%}
                 {% csrf_token %}
                 <div class="lieu titre">
-                    <p>Titre</p>
+                    <p>Nom vehicule</p>
                     {{form.nom_vehicule}}
 
+                </div>
+                <div class="type heure">
+                    <p>immatriculation</p>
+                    {{form.immatriculation}}
                 </div>
                 <div class="capacite heure">
                     <p>Capacité</p>
@@ -70,27 +85,22 @@
                     {{form.type}}
                 </div>
                 <div class="type heure">
-                    <p>Trajets</p>
-                    {% for key, trajet in trajets %}
-                  <option value="{{trajet.id}}">  {{trajet.code_trajet}}</option>
-                    {%endfor%}
+               
+               
                 </div>
                 <div class="type heure">
-                    <p>Destinations</p>
-                    {% for key, destination in destinations %}
-                  <option value="{{destination.id}}">  {{destination.nom_destination}}</option>
-                    {%endfor%}
+                    <p>Trajets</p>
+                    <select name="trajet" id="">
+                        {% for trajet in trajets %}
+                        <option value="{{trajet.id}}">  {{trajet.code_trajet}}</option>
+                          {%endfor%}
+                    </select>
+                  
                 </div>
                 <div class="inputBox">
                     <input type="submit" value="Save">
                 </div> 
-                {% if errors %}
-                <div>
-                    {% for key, error in errors %}
-                    {{error}}
-                    {%endfor%}
-                </div>
-                {%endif%}
+               
             </form>
         </div>
         <a class="fas fa-times close" onclick="popupToggle();"></a>

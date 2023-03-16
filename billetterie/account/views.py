@@ -42,7 +42,7 @@ def Inscription(request):
                         )"""
                     messages.success(request, 'Account was created for ' + email)
 
-                    return redirect('connexion')
+                    return redirect('account:connexion')
                 else:
                     messages.info(request, 'Contact is exit')
                     return redirect('inscription')
@@ -54,7 +54,7 @@ def Inscription(request):
 
 def Connexion(request):
     if request.user.is_authenticated:
-        return redirect('compte')
+        return redirect('appbilletterie:search')
     else:
         if request.method == 'POST':
             email = request.POST.get('username')
@@ -64,7 +64,7 @@ def Connexion(request):
 
             if user is not None:
                 login(request, user)
-                return redirect('acceuil')
+                return redirect('appbilletterie:index')
             else:
                 messages.info(request, 'Username OR password is incorrect')
 
@@ -84,9 +84,10 @@ def Connexionadmin(request):
             user = authenticate(request, email=email, password=password)
 
             if user is not None:
-                if user.is_admin == True:
+                if user.is_admin == True or user.is_staff==True:
                     login(request, user)
                     return redirect('nameadmin:admin')
+ 
                 else:
                     messages.info(request, "Vous n'est pas autoriser à vous connecter :( ")
             else:
@@ -98,4 +99,4 @@ def Connexionadmin(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('connexion')
+    return redirect('account:connexion')

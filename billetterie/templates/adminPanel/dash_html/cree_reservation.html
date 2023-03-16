@@ -14,63 +14,62 @@
     <div id="popup" style="left: 50%; visibility: visible;">
         <div class="content">
             <h2>Créer une Commande</h2>
+            {% for message in messages %}
+            <p class="bg-info">{{message}}</p>
+            {%endfor%}
             <hr>
-            <form action="#">
-                <p>Sejour</p>
-                <input type="text" name="#" placeholder="Allez simple ou Allé-retour">
+            <form action="" method="post">
+                <div>
+                    {% for  error in errors %}
+                    {{error}}
+                    {%endfor%}
+                </div>
+                {% csrf_token %}
+                <!-- <p>Sejour</p>
+                <input type="text" name="#" placeholder="Allez simple ou Allé-retour"> -->
                 <div class="lieu">
                     <div class="lieu1">
-                        <p>Depart</p>
-                        <select name="#" required>
-                            <option selected disabled>Ville de Départ</option>
-                            <option value="abengourou">Abengourou</option>
-                            <option value="abidjan">Abidjan</option>
-                            <option value="bouaké">Bouaké</option>
-                            <option value="daloa">Daloa</option>
-                            <option value="yamoussoukro">Yamoussoukro</option>
-                            <option value="san-pedro">San-Pedro</option>
-                            <option value="odiené">Odiené</option>
+                        <p>Trajet</p>
+                       
+                        <select name="trajet" required>
+                            {% for trajet in trajets %}
+                            <option value="{{trajet.id}}">  {{trajet.lieu_depart}}- {{trajet.lieu_arrivee}}</option>
+                              {%endfor%}
                             <option value="korhogo">Korhogo</option>
                         </select> 
                     </div>
                     <div class="lieu1">
-                        <p>Arrivé</p>
+                        <p>Client</p>
                         <select name="#" required>
-                            <option selected disabled>Ville d'Arrivé</option>
-                            <option value="abengourou">Abengourou</option>
-                            <option value="abidjan">Abidjan</option>
-                            <option value="bouaké">Bouaké</option>
-                            <option value="daloa">Daloa</option>
-                            <option value="yamoussoukro">Yamoussoukro</option>
-                            <option value="san-pedro">San-Pedro</option>
-                            <option value="odiené">Odiené</option>
-                            <option value="korhogo">Korhogo</option>
+                            {% for client in clients %}
+                        <option value="{{client.id}}">{{client.username}} </option>
+                          {%endfor%}
                         </select> 
                     </div>
                 </div>
                 <div class="heure">
                     <div class="heure1">
                         <p>Date de Depart</p>
-                        <input type="date" name="#">
+                        <input type="date" name="date_depat">
                     </div>
-                    <div class="heure1">
+                    <!-- <div class="heure1">
                         <p>Date de Retour</p>
                         <input type="date" name="#">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="voiture_prix">
-                    <div class="voiture_prix1">
+                    <!-- <div class="voiture_prix1">
                         <p>Passagers</p>
                         <input type="number" name="#" placeholder="nombre de Passager">
-                    </div>
+                    </div> -->
                     <div class="voiture_prix1">
                         <p>Heure de Depart</p>
-                        <input type="time" name="#">
+                        <input type="time" name="heure_depat">
                     </div>
                 </div>
-                <div>
-                    <button class="add_new button"><i class="fas fa-search"></i> Recherche</button>
-                </div>
+                <button type="submit" class="add_new button"></i>Reserver</button> 
+               
+                <!-- <button class="add_new button"><i class="fas fa-search"></i><a href="{% url 'appbilletterie:search' %}" style="color: #fff; padding: 13px 5px;"> Recherche</a></button> -->
             </form>
         </div>
     </div>

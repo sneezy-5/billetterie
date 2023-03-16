@@ -47,7 +47,13 @@
           <p>{{message}}</p>
           {%endfor%}
 
-          <form action="#" class="sign-up-form">
+          <form action="{%url 'account:Inscription' %}" method="post" class="sign-up-form">
+            <div>
+              {% for  error in errors %}
+              {{error}}
+              {%endfor%}
+          </div>
+            {% csrf_token %}
             <h2 class="title">S'Inscrire</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -58,8 +64,16 @@
               <input type="email" placeholder="Email" name="email" />
             </div>
             <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="text" placeholder="Phone" name="phone" />
+            </div>
+            <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" name="password"/>
+              <input type="password" placeholder="Password" name="password1"/>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" name="password2"/>
             </div>
             <input type="submit" class="btn" value="Inscription" />
             <p class="social-text">Inscrivez-vous les plateformes sociales</p>

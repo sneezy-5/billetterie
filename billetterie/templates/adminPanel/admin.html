@@ -49,10 +49,10 @@
               </ul>
 
             </li>
-
+            {% if request.user.is_admin %}
             <li><a href="{% url 'nameadmin:add_agent' %}"><i class='bx bx-user'></i><span class="links_name">Agent</span></a></li>
-
-            <li class="log_out"><a href="#"><i class='bx bx-log-out'></i><span class="links_name">Log out</span></a></li>
+            {% endif %}
+            <li class="log_out"><a href="{% url 'account:logoutUser' %}"><i class='bx bx-log-out'></i><span class="links_name">Log out</span></a></li>
         </ul>
     </div>
 

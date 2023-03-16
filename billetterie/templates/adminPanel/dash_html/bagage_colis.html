@@ -26,7 +26,7 @@
                         <th>Trajet</th>
                         <th>Expediteur</th>
                         <th>Destinataire</th>
-                        <th>Heure</th>
+                        <th>date</th>
                         <th>#Qté</th>
                         <th>Poids</th>
                         <th>Prix</th>
@@ -34,20 +34,27 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    {% for  coli in colis %}
+             
+                  
                     <tr>
-                        <td>HDMI</td>
-                        <td>Abidjan --> Abengourou</td>
-                        <td>Elisee <br> Koffi <br> 0707070707</td>
-                        <td>Noel <br> Koffi <br> 0707070707</td>
-                        <td>7:30</td>
-                        <td>3</td>
-                        <td>150kg</td>
-                        <td>3.500f</td>
+                        <td>{{coli.code_colis}}</td>
+                        <td>{{coli.trajet}}</td>
+                        <td>{{coli.nom_expediteur}}</td>
+                        <td>{{coli.nom_destinataire}}</td>
+                        <td>{{coli.date_depart}}</td>
+                        <td>{{coli.quantite}}</td>
+                        <td>{{coli.poids}}</td>
+                        <td>{{coli.prix_unitaire}}</td>
                         <td>
                             <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
                             <button><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
+                    {%endfor%}
+
+
                 </tbody>
             </table>
         </div>
@@ -64,52 +71,63 @@
         <div class="content">
             <h2>Enregistrer un Colis</h2>
             <hr>
-            <form action="#">
+            <form action="" method="post">
+                {% if errors %}
+                <div>
+                    {% for  error in errors %}
+                    {{error}}
+                    {%endfor%}
+                </div>
+                {%endif%}
+                {% csrf_token %}
                 <div class="ville1 lieu1">
+                    <input type="text" name="code_colis" placeholder="Code colis">
                     <div class="ville lieu">
-                        <select name="ville" required>
-                            <option selected disabled>Ville</option>
-                            <option value="abengourou">Abengourou</option>
-                            <option value="abidjan">Abidjan</option>
-                            <option value="bouaké">Bouaké</option>
-                            <option value="daloa">Daloa</option>
-                            <option value="yamoussoukro">Yamoussoukro</option>
-                            <option value="san-pedro">San-Pedro</option>
-                            <option value="odiené">Odiené</option>
-                            <option value="korhogo">Korhogo</option>
+                        <p>Trajet Et Vehicule</p>
+                      
+                        <select name="trajet" required>
+                            {% for  trajet in trajets %}
+                            <option value="{{trajet.id}}">  {{trajet.code_trajet}}</option>
+                              {%endfor%}
                         </select> 
-                        <select name="ville" required>
-                            <option selected disabled>Ville</option>
-                            <option value="abengourou">Abengourou</option>
-                            <option value="abidjan">Abidjan</option>
-                            <option value="bouaké">Bouaké</option>
-                            <option value="daloa">Daloa</option>
-                            <option value="yamoussoukro">Yamoussoukro</option>
-                            <option value="san-pedro">San-Pedro</option>
-                            <option value="odiené">Odiené</option>
-                            <option value="korhogo">Korhogo</option>
+                        
+                        <select name="vehicule" required>
+                            {% for  vehicule in vehicules %}
+                            <option value="{{vehicule.id}}">  {{vehicule.nom_vehicule}}</option>
+                              {%endfor%}
                         </select> 
                     </div>
                 </div>
                 <div class="lieu titre">
-                    <input type="text" name="#" placeholder="Expediteur">
-                    <input type="text" name="#" placeholder="Destinataire">
+                    <input type="text" name="nom_expediteur" placeholder="Expediteur">
+                    <!-- {{form.nom_expediteur}}
+                    {{form.nom_destinataire}} -->
+                    <input type="text" name="nom_destinataire" placeholder="Destinataire">
                 </div>
                 <div class="adresse heure">
+                    <input type="text" name="type" placeholder="Type">
+                    <input type="date" name="date_depart" placeholder="date_depart">
+
+                </div>
+                <!-- <div class="adresse heure">
                     <input type="text" name="#" placeholder="number de l'Expediteur">
                     <input type="text" name="#" placeholder="number du Destinataire">
-                </div>
+                </div> -->
                 <div class="heure">
-                    <input type="text" name="#" placeholder="En attente / Confirméé / Annulée">
-                    <input type="date" name="#">
+                    <input type="text" name="status" placeholder="En attente / Confirméé / Annulée">
+                    <!-- <input type="date" name="#"> -->
                 </div>
                 <div class="lieu">
-                    <input type="number" name="#" placeholder=" Poids ( Kg )">
-                    <input type="number" name="#" placeholder=" Prix ( fcfa )">
+                    <input type="number" name="poids" placeholder=" Poids ( Kg )">
+                    <input type="number" name="prix_unitaire" placeholder=" Prix ( fcfa )">
                 </div>
+                <input type="number" name="quantite" placeholder=" quantité">
                 <hr>
+                <div class="inputBox">
+                    <input type="submit" value="Save">
+                </div> 
             </form>
-            <div class="table_section">
+            <!-- <div class="table_section">
                 <table>
                     <thead>
                         <tr>
@@ -135,10 +153,8 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="inputBox">
-                <input type="submit" value="Save">
-            </div> 
+            </div> -->
+            
         </div>
         <a class="fas fa-times close" onclick="popupToggle();"></a>
     </div>

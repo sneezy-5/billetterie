@@ -16,7 +16,7 @@
             <p>Numero reservation</p>
             <div>
                 <a href="#"><button class="add_new button" onclick="popupToggle();"> Effectuer le paiement</button></a>
-                <button class="add_new button"><i class="fas fa-chevron-left"></i><a href="{% url 'search' %}"> Retour</a></button>
+                <button class="add_new button"><i class="fas fa-chevron-left"></i><a href="{% url 'appbilletterie:search' %}"> Retour</a></button>
             </div>
             
         </div>
@@ -99,7 +99,7 @@
         </div>
         <a class="fas fa-times close" onclick="popupToggle();"></a>
         <div class="save">
-            <a href="{% url 'valider_paiement' %}"><input type="button" value="Enregistrer"></a>
+            <a href="{% url 'appbilletterie:valider_paiement' %}"><input type="button" value="Enregistrer"></a>
         </div>
     </div>
 

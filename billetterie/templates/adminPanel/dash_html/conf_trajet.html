@@ -22,15 +22,16 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Trajet</th>
                         <th>No</th>
-                        <th>Vehicule(s)</th>
+                        <th>lieu_depart</th>
+                        <th>lieu_arrivee</th>
+                        <!-- <th>Vehicule(s)</th> -->
                         <th>Heure</th>
                         <th>Prix</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <!-- <tbody>
                     <tr>
                         <td>Abidjan - Abengourou</td>
                         <td>HDMI</td>
@@ -42,6 +43,25 @@
                             <button><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
+                </tbody> -->
+
+                <tbody>
+                    {% for  trajet in trajets %}
+             
+                  
+                    <tr>
+                        <td>{{trajet.code_trajet}}</td>
+                        <td>{{trajet.lieu_depart}}</td>
+                        <td>{{trajet.lieu_arrivee}}</td>
+                        <td>{{trajet.heure_debut}}</td>
+                        <td>{{trajet.prix}}</td>
+                        <td>
+                            <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
+                            <button><i class="fas fa-trash"></i><a href="{% url 'nameadmin:trajet_delete' trajet.id %}" >suprier</a>
+                            </button>
+                        </td>
+                    </tr>
+                    {%endfor%}
                 </tbody>
             </table>
         </div>
@@ -58,62 +78,65 @@
         <div class="content">
             <h2>Créer un trajet</h2>
             <hr>
-            <form action="#">
+            <form action="" method="POST">
+                {% if errors %}
+                <div>
+                    {% for error in errors %}
+                    <p>{{error}}</p>
+                    {%endfor%}
+                </div>
+                {%endif%}
+
+                {% csrf_token %}
                 <p>#No</p>
-                <input type="text" name="#" placeholder="HNDN">
+                <!-- <input type="text" name="#" placeholder="HNDN"> -->
+                {{form.code_trajet}}
                 <div class="lieu">
                     <div class="lieu1">
                         <p>Depart</p>
-                        <select name="#" required>
-                            <option selected disabled>Ville de Départ</option>
-                            <option value="abengourou">Abengourou</option>
-                            <option value="abidjan">Abidjan</option>
-                            <option value="bouaké">Bouaké</option>
-                            <option value="daloa">Daloa</option>
-                            <option value="yamoussoukro">Yamoussoukro</option>
-                            <option value="san-pedro">San-Pedro</option>
-                            <option value="odiené">Odiené</option>
-                            <option value="korhogo">Korhogo</option>
+                        <select name="lieu_depart" required>
+                            <!-- <option selected disabled>Ville de Départ</option> -->
+                            {% for  destination in destinations %}
+                            <option value="{{destination.adresse}}">  {{destination.adresse}}</option>
+                              {%endfor%}
                         </select> 
                     </div>
                     <div class="lieu1">
                         <p>Arrivé</p>
-                        <select name="#" required>
-                            <option selected disabled>Ville d'Arrivé</option>
-                            <option value="abengourou">Abengourou</option>
-                            <option value="abidjan">Abidjan</option>
-                            <option value="bouaké">Bouaké</option>
-                            <option value="daloa">Daloa</option>
-                            <option value="yamoussoukro">Yamoussoukro</option>
-                            <option value="san-pedro">San-Pedro</option>
-                            <option value="odiené">Odiené</option>
-                            <option value="korhogo">Korhogo</option>
+                        <select name="lieu_arrivee" required>
+                            {% for  destination in destinations %}
+                            <option value="{{destination.adresse}}">  {{destination.adresse}}</option>
+                              {%endfor%}
                         </select> 
                     </div>
                 </div>
                 <div class="heure">
-                    <div class="heure1">
+                    <div class="heure_debut">
                         <p>Heure de debut</p>
-                        <input type="text" name="#" placeholder="Heure:Minute (07:30)">
+                        <!-- {{form.heure_debut}} -->
+                         <input type="time" name="heure_debut" placeholder="Heure:Minute (07:30)"> 
                     </div>
-                    <div class="heure1">
+                    <div class="heure_fin">
                         <p>Heure de fin</p>
-                        <input type="text" name="#" placeholder="Heure:Minute (22:30)">
+                        <!-- {{form.heure_fin}} -->
+                         <input type="time" name="heure_fin" placeholder="Heure:Minute (22:30)">
                     </div>
                 </div>
                 <div class="voiture_prix">
-                    <div class="voiture_prix1">
+                    <!-- <div class="voiture_prix1">
                         <p>capaciter vehicule</p>
                         <input type="number" name="#">
-                    </div>
+                    </div> -->
                     <div class="voiture_prix1">
                         <p>Prix</p>
-                        <input type="number" name="#">
+                        <!-- <input type="number" name="prix"> -->
+                        {{form.prix}}
                     </div>
                 </div>
                 <div class="inputBox">
                     <input type="submit" value="Save">
                 </div> 
+               
             </form>
         </div>
         <a class="fas fa-times close" onclick="popupToggle();"></a>
@@ -125,68 +148,79 @@
         <div class="content">
             <h2>Modifié le trajet</h2>
             <hr>
-            <form action="#">
+            <form action="" method="POST">
+                {% if errors %}
+                <div>
+                    {% for error in errors %}
+                    <p>{{error}}</p>
+                    {%endfor%}
+                </div>
+                {%endif%}
+
+                {% csrf_token %}
                 <p>#No</p>
-                <input type="text" name="#" placeholder="HNDN">
+                <!-- <input type="text" name="#" placeholder="HNDN"> -->
+                {{form.code_trajet}}
                 <div class="lieu">
                     <div class="lieu1">
                         <p>Depart</p>
-                        <select name="#" required>
-                            <option selected disabled>Ville de Départ</option>
-                            <option value="abengourou">Abengourou</option>
-                            <option value="abidjan">Abidjan</option>
-                            <option value="bouaké">Bouaké</option>
-                            <option value="daloa">Daloa</option>
-                            <option value="yamoussoukro">Yamoussoukro</option>
-                            <option value="san-pedro">San-Pedro</option>
-                            <option value="odiené">Odiené</option>
-                            <option value="korhogo">Korhogo</option>
+                        <select name="lieu_depart" required>
+                            <!-- <option selected disabled>Ville de Départ</option> -->
+                            {% for  destination in destinations %}
+                            <option value="{{destination.adresse}}">  {{destination.adresse}}</option>
+                              {%endfor%}
                         </select> 
                     </div>
                     <div class="lieu1">
                         <p>Arrivé</p>
-                        <select name="#" required>
-                            <option selected disabled>Ville d'Arrivé</option>
-                            <option value="abengourou">Abengourou</option>
-                            <option value="abidjan">Abidjan</option>
-                            <option value="bouaké">Bouaké</option>
-                            <option value="daloa">Daloa</option>
-                            <option value="yamoussoukro">Yamoussoukro</option>
-                            <option value="san-pedro">San-Pedro</option>
-                            <option value="odiené">Odiené</option>
-                            <option value="korhogo">Korhogo</option>
+                        <select name="lieu_arrivee" required>
+                            {% for  destination in destinations %}
+                            <option value="{{destination.adresse}}">  {{destination.adresse}}</option>
+                              {%endfor%}
                         </select> 
                     </div>
                 </div>
                 <div class="heure">
-                    <div class="heure1">
+                    <div class="heure_debut">
                         <p>Heure de debut</p>
-                        <input type="text" name="#" placeholder="Heure:Minute (07:30)">
+                        <!-- {{form.heure_debut}} -->
+                         <input type="time" name="heure_debut" placeholder="Heure:Minute (07:30)" value="{{trajet.heure_debut}}"> 
                     </div>
-                    <div class="heure1">
+                    <div class="heure_fin">
                         <p>Heure de fin</p>
-                        <input type="text" name="#" placeholder="Heure:Minute (22:30)">
+                        <!-- {{form.heure_fin}} -->
+                         <input type="time" name="heure_fin" placeholder="Heure:Minute (22:30)">
                     </div>
                 </div>
                 <div class="voiture_prix">
-                    <div class="voiture_prix1">
+                    <!-- <div class="voiture_prix1">
                         <p>capaciter vehicule</p>
                         <input type="number" name="#">
-                    </div>
+                    </div> -->
                     <div class="voiture_prix1">
                         <p>Prix</p>
-                        <input type="number" name="#">
+                        <input type="number" name="prix" value="{{trajet.prix}}">
+                        <!-- {{form.prix}} -->
                     </div>
                 </div>
                 <div class="inputBox">
                     <input type="submit" value="Save">
                 </div> 
+               
             </form>
         </div>
         <a class="fas fa-times close" onclick="popupToggleEdit();"></a>
     </div>
 
+    <script>
+      function delete_trajet(url) {
+       console.log('fzefze')
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce trajet ?')) {
+        window.location.href = url;
+    }
+}
 
+    </script>
     <script src="{% static 'adminPanel/dash_js/gestion.js' %}"></script>
 </body>
 </html>

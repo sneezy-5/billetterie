@@ -24,22 +24,26 @@
                     <tr>
                         <th>Email</th>
                         <th>Telephone</th>
-                        <th>Prenom</th>
-                        <th>Nom</th>
+                        <th>Username</th>
+                        <!-- <th>Nom</th> -->
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for  agent in agents %}
+             
+                  
                     <tr>
-                        <td>test@test.com</td>
-                        <td>0701020304</td>
-                        <td>Elisee</td>
-                        <td>Koffi</td>
+                        <td>{{agent.email}}</td>
+                        <td>{{agent.phone}}</td>
+                        <td>{{agent.username}}</td>
+                        <!-- <td>{{remise.last_name}}</td> -->
                         <td>
                             <button><i class="fas fa-pen-square" onclick="popupToggleEdit();"></i></button>
                             <button><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
+                    {%endfor%}
                 </tbody>
             </table>
         </div>
@@ -56,30 +60,36 @@
         <div class="content">
             <h2>Créer un Agent</h2>
             <hr>
-            <form action="#">
+            <form action="" method="post">
+                <div>
+                    {% for  error in errors %}
+                    {{error}}
+                    {%endfor%}
+                </div>
+                {% csrf_token %}
                 <p>Téléphone</p>
-                <input type="text" name="#" placeholder="+2250102030405">
+                <input type="text" name="phone" placeholder="+2250102030405">
                 <div class="voiture_prix">
                     <div class="voiture_prix1">
                         <p>Email</p>
-                        <input type="email" name="#" placeholder="test@test.com">
+                        <input type="email" name="email" placeholder="test@test.com">
                     </div>
                     <div class="voiture_prix1">
-                        <p>Mot de passe</p>
-                        <input type="password" name="#">
+                        <p>Username</p>
+                        <input type="text" name="username">
                     </div>
                 </div>
                 <div class="heure">
                     <div class="heure1">
-                        <p>Prenom</p>
-                        <input type="text" name="#" placeholder="Prenom">
+                        <p>Mot de passe</p>
+                        <input type="password" name="password1" placeholder="******">
                     </div>
                     <div class="heure1">
-                        <p>Nom</p>
-                        <input type="text" name="#" placeholder="Nom">
+                        <p>Confirme</p>
+                        <input type="password" name="password2" placeholder="******">
                     </div>
                 </div>
-                <div class="voiture_prix">
+                <!-- <div class="voiture_prix">
                     <div class="voiture_prix1">
                         <p>Pays</p>
                         <input type="text" name="#" placeholder="Pays">
@@ -88,7 +98,7 @@
                         <p>Ville</p>
                         <input type="text" name="#" placeholder="Ville">
                     </div>
-                </div>
+                </div> -->
                 <div class="inputBox">
                     <input type="submit" value="Save">
                 </div> 
