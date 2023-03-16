@@ -11,7 +11,6 @@ class Trajet(models.Model):
     heure_debut	= models.TimeField()
     heure_fin = models.TimeField()
     prix = models.IntegerField(max_length=100)
-   # vehicule = models.ManyToManyField('Vehicule')
     date_enregistrement = models.DateTimeField(auto_now=True)    
     user = models.ForeignKey(Account, on_delete=models.CASCADE, default="")
 
@@ -38,7 +37,6 @@ class Vehicule(models.Model):
     date_enregistrement = models.DateTimeField(auto_now=True)
 
     user = models.ForeignKey(Account, on_delete=models.CASCADE, default='')
-    #destination = models.ForeignKey(Destination, on_delete=models.CASCADE, default='')
     trajet = models.ForeignKey(Trajet, on_delete=models.CASCADE, default='')
     
     
@@ -55,7 +53,6 @@ class Remise(models.Model):
 
     user = models.ForeignKey( Account, on_delete=models.CASCADE)
     trajet = models.OneToOneField( Trajet, on_delete=models.CASCADE)
-    #vehicule = models.OneToOneField( Vehicule, on_delete=models.CASCADE, default="")
 
 
 # class Cycle_trajet(models.Model):
@@ -93,6 +90,5 @@ class Reservations(models.Model):
     date_depat = models.DateTimeField()
     heure_depat = models.TimeField(default=datetime.datetime.now())
     place = models.IntegerField(default=1)
-    #vehicule = models.ForeignKey(Vehicule, on_delete=models.CASCADE, default=1)
+    vehicule = models.ForeignKey(Vehicule, on_delete=models.CASCADE, default=1)
     created_at = models.DateTimeField(auto_now=True)
-    #models.ManyToManyField(Account, verbose_name='reservation')
